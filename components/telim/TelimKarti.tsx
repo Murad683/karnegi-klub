@@ -3,13 +3,14 @@ import { Reveal } from "../motion/Reveal";
 import { telimYolu, type HazirTelim } from "@/content/telimler";
 import { tones } from "@/lib/tones";
 
+// Siyahı səhifəsinin fonu da `mist` olduğu üçün `mist` tonlu kart ağ göstərilir (fonla qarışmasın).
 // Siyahı səhifəsində təlim kartı: şəkil (3:2), ad, bir cümlə və "Ətraflı" göstəricisi. Bütün kart linkdir.
 export function TelimKarti({ telim, index }: { telim: HazirTelim; index: number }) {
   return (
     <Reveal delay={(index % 3) * 0.08} className="h-full">
       <Link
         href={telimYolu(telim.slug)}
-        className={`group flex h-full flex-col gap-5 rounded-[28px] p-5 text-center transition-transform duration-500 hover:-translate-y-1 md:rounded-[32px] md:p-6 ${tones[telim.tone]}`}
+        className={`group flex h-full flex-col gap-5 rounded-[28px] p-5 text-center transition-transform duration-500 hover:-translate-y-1 md:rounded-[32px] md:p-6 ${telim.tone === "mist" ? "bg-white" : tones[telim.tone]}`}
       >
         <div className="aspect-[3/2] overflow-hidden rounded-[20px] bg-white/40">
           {/* eslint-disable-next-line @next/next/no-img-element */}
