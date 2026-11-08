@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prototip B — Vizitka</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap&subset=latin-ext" rel="stylesheet">
+<style>
+:root{--cream:#FFF6E8;--ink:#1F2433;--red:#E4402F;--blue:#1E88D8;--green:#8DB92E;--yellow:#F6B800}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:40px 5vw;
+ background-image:radial-gradient(circle at 15% 20%,#FFD9D1 0,transparent 35%),radial-gradient(circle at 85% 80%,#D6ECFB 0,transparent 35%)}
+.top{text-align:center}
+.top small{font-weight:700;letter-spacing:3px;font-size:12px;color:var(--red)}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);letter-spacing:-1px;margin-top:8px}
+.scene{perspective:1600px;width:min(780px,92vw);aspect-ratio:1.75}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.2,.4,1);cursor:pointer;animation:bob 6s ease-in-out infinite}
+.card.flip{transform:rotateY(180deg);animation:none}
+@keyframes bob{50%{transform:rotateY(-6deg) rotateX(3deg) translateY(-8px)}}
+.face{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;overflow:hidden;box-shadow:0 40px 70px -25px #0006,0 0 0 1px #0001}
+.front{background:#fff;display:grid;grid-template-columns:1.1fr 1fr}
+.front .ph{background:url(img/stress.jpg) 40% 15%/cover}
+.front .tx{padding:6% 7%;display:flex;flex-direction:column;justify-content:space-between}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:clamp(14px,2vw,20px);display:flex;align-items:center;gap:8px}
+.ring{width:1.6em;height:1.6em;border-radius:50%;background:conic-gradient(var(--red) 0 25%,var(--yellow) 0 50%,var(--green) 0 75%,var(--blue) 0);mask:radial-gradient(circle,transparent 38%,#000 40%);-webkit-mask:radial-gradient(circle,transparent 38%,#000 40%)}
+.nm{font-family:Fraunces,serif;font-weight:800;font-size:clamp(20px,3.2vw,36px);line-height:1.05}
+.nm span{display:block;font-family:'Plus Jakarta Sans';font-weight:600;font-size:clamp(11px,1.4vw,14px);color:#6b7186;margin-top:8px}
+.flipme{font-size:clamp(10px,1.2vw,13px);font-weight:700;color:var(--red)}
+.back{transform:rotateY(180deg);background:linear-gradient(135deg,#1E88D8,#1a6fb0);color:#fff;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:4%;padding:5%}
+.back h3{font-family:Fraunces,serif;font-size:clamp(13px,1.8vw,19px);margin-bottom:10px;color:var(--yellow)}
+.back ul{list-style:none;font-size:clamp(10px,1.45vw,15px);line-height:1.9;font-weight:600}
+.back .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
+.back .mid .logo{font-size:clamp(16px,2.4vw,26px)}
+.qr{width:clamp(80px,14vw,130px);aspect-ratio:1;background:#fff;border-radius:12px;padding:8px;display:grid;grid-template-columns:repeat(9,1fr);gap:2px}
+.qr i{background:#1F2433;border-radius:1px}.qr i.o{background:transparent}
+.cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
+.btn{background:var(--red);color:#fff;padding:15px 28px;border-radius:99px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px -8px var(--red)}
+.ghost{font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink)}
+.note{position:fixed;bottom:12px;right:12px;background:var(--ink);color:#fff;font-size:12px;padding:8px 12px;border-radius:10px;opacity:.85}
+@media(max-width:600px){.scene{aspect-ratio:.72}.front{grid-template-columns:1fr;grid-template-rows:1.2fr 1fr}.back{grid-template-columns:1fr;grid-template-rows:auto auto auto;overflow:auto}.back .mid{order:-1;flex-direction:row}}
+</style>
+</head>
+<body>
+<div class="top"><small>BİR VİZİTKA, BİR SİMA, BİR TANIŞLIQ</small><h1>Tanışlıq vizitka ilə başlayır.</h1></div>
+<div class="scene"><div class="card" id="card">
+ <div class="face front"><div class="ph"></div>
+  <div class="tx"><div class="logo"><span class="ring"></span>Karnegi Klub</div>
+  <div class="nm">Dr. Nəcəf<br>Allahverdiyev<span>Natiqlik və kommunikasiya təlimçisi</span></div>
+  <div class="flipme">↻ Çevirmək üçün toxunun</div></div></div>
+ <div class="face back">
+  <div><h3>Əlaqə</h3><ul><li>☎ +994 55 444-14-00</li><li>WhatsApp</li><li>Instagram</li><li>TikTok · YouTube</li><li>karnegi.az</li></ul></div>
+  <div class="mid"><div class="logo"><span class="ring" style="background:conic-gradient(#fff 0 25%,var(--yellow) 0 50%,#cfe8a0 0 75%,#9bd0f5 0)"></span>Karnegi Klub</div>
+   <div class="qr" id="qr"></div><small style="font-weight:600;font-size:11px">QR — birbaşa qeydiyyat</small></div>
+  <div><h3>Təlimlər</h3><ul><li>Xarizmatik Natiq</li><li>Beyin Xəritəsi</li><li>Time Management</li><li>Effektiv Satış</li><li>Stress Management</li><li>İdeyalar Generatoru</li></ul></div>
+ </div></div></div>
+<div class="cta"><a class="btn" href="#">Pulsuz ilk dərsə yazıl</a><a class="ghost" href="#">Sayta daxil ol ↓</a></div>
+<div class="note">Prototip B · Vizitka (məzmun nümunədir)</div>
+<script>
+const c=document.getElementById('card');c.onclick=()=>c.classList.toggle('flip');
+const q=document.getElementById('qr');let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;
+for(let i=0;i<81;i++){const e=document.createElement('i');if(r()<.45)e.className='o';q.appendChild(e)}
+</script>
+</body>
+</html>

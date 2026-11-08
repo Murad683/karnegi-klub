@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prototip Q — Açıq və redaksiya</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#0099FF;--ink:#0B1B33;--orange:#F42902;--sun:#FFD84D;--white:#FDFDFE;--mist:#F1F8FF;--ease:cubic-bezier(.32,.72,0,1)}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Schibsted Grotesk',sans-serif;color:var(--ink);background:var(--mist);overflow-x:hidden}
+.hero{min-height:100vh;padding:0 4vw 8vh;position:relative}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{font-weight:800;font-size:24px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.logo i{width:26px;height:26px;border-radius:50%;background:conic-gradient(#E4402F 0 25%,#F6B800 0 50%,#8DB92E 0 75%,#0099FF 0);mask:radial-gradient(circle,transparent 7px,#000 8px);-webkit-mask:radial-gradient(circle,transparent 7px,#000 8px)}
+nav ul{display:flex;gap:34px;list-style:none;font-weight:600;font-size:16px;color:#33415c}
+.pill{background:var(--ink);color:#fff;padding:13px 24px;border-radius:999px;font:700 15px 'Schibsted Grotesk';border:0}
+.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5vw;align-items:center;margin-top:7vh}
+h1{font-weight:800;font-size:clamp(46px,6.8vw,112px);line-height:1;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--sky)}
+.sub{font-size:20px;line-height:1.55;color:#4a5878;font-weight:500;max-width:470px;margin-top:28px}
+.ctas{display:flex;align-items:center;gap:26px;margin-top:38px;flex-wrap:wrap}
+.btn{background:var(--orange);color:#fff;font:700 17px 'Schibsted Grotesk';padding:20px 38px;border-radius:999px;border:0;box-shadow:0 16px 36px -14px #F4290299}
+.lnk{font-weight:700;border-bottom:2px solid var(--ink);padding-bottom:3px}
+.free{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;margin-bottom:26px;box-shadow:0 6px 24px -10px #0B1B3340}
+.free i{width:9px;height:9px;border-radius:50%;background:var(--sun)}
+.visual{position:relative;justify-self:center;width:min(100%,460px)}
+.arch{aspect-ratio:4/5;border-radius:999px 999px 36px 36px;background:url(img/natiq.jpg) 52% 18%/cover;box-shadow:0 40px 90px -40px #0B1B33AA}
+.chip{position:absolute;background:#fff;border-radius:999px;padding:11px 18px;font-weight:700;font-size:14px;box-shadow:0 14px 34px -14px #0B1B3350;animation:f 6s var(--ease) infinite}
+.c1{left:-12%;top:62%}.c2{right:-8%;top:30%;animation-delay:-2s}.c3{left:-4%;top:84%;animation-delay:-4s}
+@keyframes f{50%{transform:translateY(-8px)}}
+.sticker{position:absolute;right:-6%;bottom:-6%;width:118px;height:118px}
+.sticker svg{width:100%;height:100%;animation:spin 16s linear infinite}
+.sticker .a{position:absolute;inset:0;display:grid;place-items:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cards{padding:12vh 4vw;background:var(--white)}
+.cards h2{font-size:clamp(38px,5.6vw,84px);font-weight:800;letter-spacing:-.035em;line-height:1.04}
+.cards p.l{font-weight:600;color:#5B6478;margin-top:12px;font-size:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:6vh}
+.card{border-radius:36px;padding:36px;background:#fff;border:1px solid #0B1B3314;box-shadow:0 30px 70px -50px #0B1B33;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.card .n{font-weight:800;font-size:14px;color:var(--sky);background:var(--mist);border-radius:999px;padding:6px 14px;align-self:flex-start}
+.card h3{font-size:clamp(30px,3.6vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-top:30px}
+.card p{margin-top:10px;color:#4a5878;font-weight:500;line-height:1.55;max-width:380px}
+.card .go{margin-top:22px;font-weight:700;border-bottom:2px solid var(--ink);align-self:flex-start;padding-bottom:3px}
+.note{position:fixed;bottom:12px;right:12px;background:var(--ink);color:#fff;font-size:12px;padding:8px 12px;border-radius:10px;opacity:.85;z-index:9}
+@media(max-width:860px){nav ul{display:none}.grid{grid-template-columns:1fr}.visual{width:min(100%,360px)}.c1{left:-4%}.c2{right:-2%}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section class="hero">
+ <nav><div class="logo"><i></i>Karnegi</div>
+  <ul><li>Təlimlər</li><li>Haqqımızda</li><li>Qalereya</li><li>Əlaqə</li></ul>
+  <button class="pill">İlk dərs pulsuz</button></nav>
+ <div class="grid">
+  <div>
+   <span class="free"><i></i>Növbəti qrup tezliklə</span>
+   <h1>Burada hamı <em>səsini</em> tapır.</h1>
+   <p class="sub">16 ildir minlərlə insana öz səsini tapmağı öyrədirik. İlk dərs pulsuzdur, gəlin, özünüz görün.</p>
+   <div class="ctas"><button class="btn">İlk dərsə yazıl</button><span class="lnk">Təlimlərə bax →</span></div>
+  </div>
+  <div class="visual">
+   <div class="arch"></div>
+   <span class="chip c2">Natiqlik</span><span class="chip c1">Özgüvən</span><span class="chip c3">Cəsarət</span>
+   <div class="sticker">
+    <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#FFD84D"/>
+     <defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+     <text font-family="Schibsted Grotesk" font-weight="800" font-size="11" letter-spacing=".6" fill="#0B1B33"><textPath href="#c">İlk dərs pulsuz · İlk dərs pulsuz ·</textPath></text></svg>
+    <div class="a"><svg viewBox="0 0 40 40" style="width:32px;height:32px;animation:none"><path d="M6 30 L30 10 M14 10 H30 V26" fill="none" stroke="#0B1B33" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   </div>
+  </div>
+ </div>
+</section>
+<section class="cards">
+ <h2>Təlimlərimiz</h2>
+ <p class="l">Altı istiqamət, bir məqsəd: öz səsinizi tapmaq.</p>
+ <div class="row">
+  <div class="card"><span class="n">01</span><div><h3>Xarizmatik natiq</h3><p>Auditoriya qarşısında qorxusuz, inamlı və təsirli danışın.</p><span class="go">Yerini ayır →</span></div></div>
+  <div class="card"><span class="n">02</span><div><h3>Beyin xəritəsi</h3><p>Fikirləri sistemləşdirin, daha tez öyrənin və yadda saxlayın.</p><span class="go">Yerini ayır →</span></div></div>
+ </div>
+</section>
+<div class="note">Prototip Q · Açıq və redaksiya (şəkillər nümunədir)</div>
+</body>
+</html>

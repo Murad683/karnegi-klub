@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sky: #0099ff;
+  --color-white: #fdfdfe;
+  --color-ink: #0b1b33;
+  --color-muted: #5b6478;
+  --color-orange: #f42902;
+  --color-orange-hover: #d12000;
+  /* İsti sarı: stiker, vurğu, səs dalğası. */
+  --color-sun: #ffd84d;
+  /* Yumşaq ton blokları (loqo rənglərinin açıq variantları). */
+  --color-sky-soft: #dceeff;
+  --color-sun-soft: #fff1c2;
+  --color-peach: #ffe3d9;
+  --color-mint: #ddf3e4;
+  --color-mist: #eaf5ff;
+  --color-soft: #f3f5f9;
+  /* Əvvəlki komponentlər `primary` istifadə edir: indi narıncıya yönəlir. */
+  --color-primary: #f42902;
+  --color-primary-hover: #d12000;
+  --color-ring-red: #e4402f;
+  --color-ring-yellow: #f6b800;
+  --color-ring-green: #8db92e;
+  --color-ring-blue: #1e88d8;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+}
+
+/* Apple tipli yumşaq əyri: bütün keçidlər üçün ortaq. */
+:root {
+  --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+button {
+  transition-timing-function: var(--ease-apple);
+}
+
+/* Üfüqi sıçrayışın qarşısı: böyük yazılar yan scroll yaratmasın. */
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Böyük başlıq: qalın, adi hərf, yumşaq sıxlıq. */
+.display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+/* Kiçik etiketlər: adi hərf, qalın. */
+.label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+/* Səs çubuqlarının boşdakı yavaş "nəfəs alması" (footer). */
+@keyframes voice-breathe {
+  0%,
+  100% {
+    transform: scaleY(0.86);
+  }
+  50% {
+    transform: scaleY(1.04);
+  }
+}
+
+.voice-bar {
+  animation: voice-breathe 3.8s var(--ease-apple) infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-bar {
+    animation: none;
+  }
+}
+
+/* Qeydiyyat pəncərəsinin yumşaq açılışı. */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reg-dialog[open] {
+  animation: dialog-in 0.55s var(--ease-apple);
+}
+
+.reg-dialog[open]::backdrop {
+  animation: backdrop-in 0.45s var(--ease-apple);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reg-dialog[open],
+  .reg-dialog[open]::backdrop {
+    animation: none;
+  }
+}
+
+@keyframes sticker-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sticker-spin {
+  animation: sticker-spin 16s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker-spin {
+    animation: none;
+  }
+}
