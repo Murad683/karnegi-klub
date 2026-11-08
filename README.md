@@ -21,9 +21,13 @@ npm run check:placeholders   # yayımdan əvvəl: hələ real olmayan (nümunə)
 
 | Qovluq | Nə var |
 |---|---|
-| `app/` | səhifə (`page.tsx`), layout, qlobal CSS və dizayn tokenləri, `icon.svg` |
+| `app/` | ana səhifə (`page.tsx`), layout, qlobal CSS və dizayn tokenləri, `icon.svg`, `sitemap.ts`, `robots.ts` |
+| `app/telimler/` | təlimlər siyahısı (`/telimler/`): menyu və footer-dəki "Təlimlər" linki buraya aparır |
+| `app/telimler/[slug]/` | təlim səhifələri (`/telimler/ad/`), `generateStaticParams` ilə build zamanı yaranır |
 | `components/` | menyu, hero, footer, qeydiyyat pəncərəsi |
 | `components/sections/` | Təlimlər (yığılan bloklar), Nəcəf bey, Rəylər, Müştərilər, yekun çağırış |
+| `components/telim/` | təlim səhifəsinin bölmələri (hero, kimlər üçündür, proqram, nəticə, iki yol, digər təlimlər) |
+| `lib/` | ortaq köməkçilər (`tones.ts`: təlim rəngləri) |
 | `components/motion/` | scroll effektləri (reveal, parallaks, sayğac, scroll göstəricisi) |
 | `content/` | **bütün mətn və məlumat** (təlimlər, rəylər, müştərilər, rəqəmlər, əlaqə) |
 | `public/images/` | təlim şəkilləri |
@@ -33,6 +37,10 @@ npm run check:placeholders   # yayımdan əvvəl: hələ real olmayan (nümunə)
 ## Məzmunu dəyişmək
 
 Mətn və rəqəmlər `content/*.ts` fayllarındadır. `placeholder: true` işarəli hər şey nümunədir və real məlumatla əvəz olunmalıdır.
+
+**Təlim səhifələri:** `content/telimler.ts` faylında hər təlim üçün `seoAd` (başlıq/axtarış adı), `kimler`, `proqram`, `neticeler` doldurulduqda `/telimler/[slug]/` səhifəsi, sitemap-də yeri və ana səhifə blokunda "Ətraflı" linki avtomatik yaranır. Qiymət, müddət və qrafik real məlumat verilməyincə yazılmır.
+
+**Statik export qeydləri:** `trailingSlash: true` (hər səhifə `qovluq/index.html` kimi yaranır, nginx üçün sadə). Domen `app/layout.tsx`-dəki `metadataBase` və `app/sitemap.ts`-dəki `BASE`-də `https://karnegi.az` kimi qeyd olunub.
 
 ## Dizayn qaydaları
 

@@ -1,18 +1,14 @@
 "use client";
 
 import { motion, useTransform, type MotionValue } from "motion/react";
+import Link from "next/link";
 import { RegisterButton } from "../Button";
 import { Parallax } from "../motion/Parallax";
 import { useScrollMotion } from "../motion/useScrollMotion";
-import type { Telim, Tone } from "@/content/telimler";
+import { hazirTelimler, telimYolu, type Telim } from "@/content/telimler";
+import { tones } from "@/lib/tones";
 
-const tones: Record<Tone, string> = {
-  sky: "bg-sky-soft",
-  sun: "bg-sun-soft",
-  peach: "bg-peach",
-  mint: "bg-mint",
-  mist: "bg-mist",
-};
+const sehifeliSluglar = new Set(hazirTelimler.map((t) => t.slug));
 
 type Props = {
   telim: Telim;
@@ -51,9 +47,19 @@ export function TelimBlock({ telim, index, total, progress }: Props) {
           </h3>
           <div className="flex flex-col items-center gap-4 md:items-start md:gap-6">
             <p className="max-w-sm text-base font-medium leading-relaxed text-ink/80 md:text-lg">{telim.qisa}</p>
-            <RegisterButton telimSlug={telim.slug} variant="ink" size="sm">
-              Yerini ayır →
-            </RegisterButton>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
+              <RegisterButton telimSlug={telim.slug} variant="ink" size="sm">
+                Yerini ayır →
+              </RegisterButton>
+              {sehifeliSluglar.has(telim.slug) && (
+                <Link
+                  href={telimYolu(telim.slug)}
+                  className="border-b-2 border-ink pb-0.5 text-[15px] font-bold text-ink transition-opacity duration-500 hover:opacity-60"
+                >
+                  Ətraflı
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 

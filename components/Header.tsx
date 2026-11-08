@@ -1,6 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
 import { RegisterButton } from "./Button";
@@ -51,9 +53,12 @@ export function Header() {
     };
   }, [menuOpen]);
 
+  // Ana səhifənin mavi hero-su üstündə yazı ağdır; daxili səhifələrdə (açıq tonlu hero) həmişə tünd.
+  const onHero = usePathname() === "/";
   const floating = mode !== "top";
+  const dark = floating || !onHero;
   const hidden = mode === "hidden" && !menuOpen;
-  const ink = floating ? "text-ink" : "text-white";
+  const ink = dark ? "text-ink" : "text-white";
 
   const item = (delay: number) =>
     reduce
@@ -83,9 +88,9 @@ export function Header() {
         className="pointer-events-auto mx-auto flex w-full items-center justify-between gap-4 border px-4 py-3 md:px-8"
         style={{ WebkitBackdropFilter: "inherit" }}
       >
-        <a href="#" aria-label="Karnegi Klub — ana səhifə">
-          <LogoMark tone={floating ? "dark" : "light"} />
-        </a>
+        <Link href="/" aria-label="Karnegi Klub — ana səhifə">
+          <LogoMark tone={dark ? "dark" : "light"} />
+        </Link>
 
         <nav aria-label="Əsas menyu" className="hidden items-center gap-9 md:flex">
           {nav.map((i) => (
@@ -101,7 +106,7 @@ export function Header() {
 
         <div className="flex items-center gap-1">
           <div className="hidden sm:block">
-            <RegisterButton variant={floating ? "orange" : "white"} size="sm">
+            <RegisterButton variant={dark ? "orange" : "white"} size="sm">
               Yerini ayır
             </RegisterButton>
           </div>

@@ -26,6 +26,33 @@ type Props = {
   size?: keyof typeof sizes;
 };
 
+// Düymə görünüşündə link (məsələn, WhatsApp-a keçid).
+export function LinkButton({
+  children,
+  href,
+  className = "",
+  variant = "orange",
+  size = "md",
+  external = false,
+}: {
+  children: ReactNode;
+  href: string;
+  className?: string;
+  variant?: keyof typeof variants;
+  size?: keyof typeof sizes;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
 // Qeydiyyat pəncərəsini açan əsas düymə.
 export function RegisterButton({ children, className = "", telimSlug, variant = "orange", size = "md" }: Props) {
   const { open } = useRegistration();

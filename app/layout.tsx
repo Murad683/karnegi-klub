@@ -15,9 +15,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://karnegi.az"),
   title: "Karnegi Klub — natiqlik və kommunikasiya təlimləri",
   description:
     "16 ildir Bakıda natiqlik, satış, vaxt idarəetməsi və stress menecmenti təlimləri. İlk dərs pulsuzdur.",
+  alternates: { canonical: "/" },
+  openGraph: { siteName: "Karnegi Klub", locale: "az_AZ", type: "website" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
