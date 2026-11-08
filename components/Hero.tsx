@@ -41,7 +41,7 @@ export function Hero() {
           Natiqlik və özünüifadə təlimləri. Gəlin, birlikdə başlayaq.
         </p>
         <div className="relative mt-9 flex justify-center">
-          <RegisterButton size="lg">İlk dərsə yazıl</RegisterButton>
+          <RegisterButton size="lg">İlk dərsə pulsuz yazıl</RegisterButton>
         </div>
       </motion.div>
 
