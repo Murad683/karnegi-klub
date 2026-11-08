@@ -11,7 +11,7 @@ export function Reviews() {
   return (
     <section id="reyler" className="bg-white px-4 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1500px]">
-        <Reveal>
+        <Reveal className="text-center">
           <h2 className="display text-[12vw] text-ink md:text-[6.2vw] min-[1700px]:text-[100px]">
             Tələbələr
             <br className="md:hidden" /> nə deyir
@@ -23,7 +23,7 @@ export function Reviews() {
             <li key={i} className="w-[84%] shrink-0 snap-center md:w-auto">
               <Reveal delay={i * 0.1} className="h-full">
                 <figure
-                  className={`flex h-full min-h-[340px] flex-col justify-between rounded-[28px] p-7 text-ink md:min-h-[420px] md:rounded-[36px] md:p-10 ${tones[r.tone]}`}
+                  className={`flex h-full min-h-[340px] flex-col justify-between rounded-[28px] p-7 text-center text-ink md:min-h-[420px] md:text-left md:rounded-[36px] md:p-10 ${tones[r.tone]}`}
                 >
                   <span aria-hidden="true" className="display block text-[110px] leading-[0.6] opacity-25 md:text-[140px]">
                     “

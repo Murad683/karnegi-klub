@@ -13,9 +13,9 @@ export function Telimler() {
   return (
     <section id="telimler" className="scroll-mt-16 bg-white px-4 pb-24 pt-24 md:px-10 md:pb-32 md:pt-32">
       <div className="mx-auto max-w-[1500px]">
-        <Reveal>
+        <Reveal className="text-center">
           <h2 className="display text-[12vw] text-ink md:text-[7vw] min-[1700px]:text-[112px]">Təlimlərimiz</h2>
-          <p className="mt-6 max-w-md text-lg font-medium leading-relaxed text-muted">
+          <p className="mx-auto mt-6 max-w-md text-lg font-medium leading-relaxed text-muted">
             Hər biri ayrı bir bacarıq. Sizə uyğun olanı seçin.
           </p>
         </Reveal>

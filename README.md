@@ -38,6 +38,7 @@ Mətn və rəqəmlər `content/*.ts` fayllarındadır. `placeholder: true` işar
 
 - Rənglər: səma mavisi, ağ, tünd mavi mətn, narıncı əsas düymə, isti sarı vurğu, yumşaq ton blokları (`app/globals.css`).
 - Başlıqlar və düymələr adi hərflə. Mötərizəli etiketlər, neon rənglər və böyük hərfli başlıqlar istifadə olunmur.
-- Eyni məlumat/vurğu iki dəfə təkrarlanmır (rəqəmlər yalnız Nəcəf bey bölməsində, "İlk dərs pulsuz" yalnız hero stikerində).
+- Eyni məlumat/vurğu iki dəfə təkrarlanmır (rəqəmlər yalnız Nəcəf bey bölməsində). Bölmə başlıqları və mobil görünüş mərkəzləşdirilib.
+- Footer-də hərf-hərf yumşaq açılan nəhəng "Karnegi" yazısı var (`components/footer/Wordmark.tsx`).
 - Hərəkət: iOS tipli yumşaq əyri `cubic-bezier(0.32, 0.72, 0, 1)`.
 - Şrift seçəndə Azərbaycan hərflərini (Ə ə İ ı Ğ Ş Ç Ö Ü) mütləq yoxlayın: bəzi populyar şriftlərdə böyük Ə yoxdur.

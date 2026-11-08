@@ -33,8 +33,8 @@ export function TelimBlock({ telim, index, total, progress }: Props) {
         style={enabled ? { scale, top: index * 18, transformOrigin: "50% 0%" } : undefined}
         className={`group relative grid w-full gap-8 overflow-hidden rounded-[28px] p-7 text-ink shadow-[0_30px_80px_-40px_rgba(11,27,51,0.28)] md:h-[min(70vh,600px)] md:grid-cols-[1.25fr_1fr] md:rounded-[36px] md:p-12 md:will-change-transform ${tones[telim.tone]}`}
       >
-        <div className="flex flex-col justify-between gap-8">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col items-center justify-between gap-8 text-center md:items-stretch md:text-left">
+          <div className="flex items-center justify-center gap-3 md:justify-start">
             <span className="text-sm font-bold opacity-60">{String(index + 1).padStart(2, "0")}</span>
             {index === 0 && (
               <span className="rounded-full bg-sun px-3.5 py-1 text-xs font-bold text-ink">Əsas təlim</span>
@@ -47,7 +47,7 @@ export function TelimBlock({ telim, index, total, progress }: Props) {
               </span>
             ))}
           </h3>
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-center gap-6 md:items-start">
             <p className="max-w-sm text-lg font-medium leading-relaxed text-ink/80">{telim.qisa}</p>
             <RegisterButton telimSlug={telim.slug} variant="ink" size="sm">
               Yerini ayır →

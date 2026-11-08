@@ -41,7 +41,7 @@ export function NecefBey() {
           <p className="mt-1 text-[15px] font-medium text-muted">{necef.rol}</p>
         </Reveal>
         <Reveal delay={0.2}>
-          <dl className="mt-14 grid gap-4 text-left md:mt-20 md:grid-cols-3">
+          <dl className="mt-14 grid gap-4 text-center md:mt-20 md:grid-cols-3 md:text-left">
             {site.stats.map((s, i) => (
               <div key={s.label} className={`rounded-[32px] p-8 ${statTones[i % statTones.length]}`}>
                 <dd className="text-[clamp(44px,5.4vw,84px)] font-extrabold leading-none tracking-[-0.04em] text-ink">

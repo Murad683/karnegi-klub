@@ -6,7 +6,7 @@ export function Clients() {
     <section className="bg-white px-4 pb-24 md:px-10 md:pb-32">
       <div className="mx-auto max-w-[1500px] border-t border-ink/10 pt-12 md:pt-16">
         <Reveal>
-          <p className="text-sm font-bold text-muted">Bizimlə işləyənlər</p>
+          <p className="text-center text-sm font-bold text-muted">Bizimlə işləyənlər</p>
           <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-6">
             {clients.map((c) => (
               <li

@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { RegisterButton } from "./Button";
-import { Sticker } from "./Sticker";
 import { Parallax } from "./motion/Parallax";
 import { useDesktopMotion } from "./motion/useDesktopMotion";
 
@@ -43,10 +42,6 @@ export function Hero() {
         </p>
         <div className="relative mt-9 flex justify-center">
           <RegisterButton size="lg">İlk dərsə yazıl</RegisterButton>
-          <Sticker
-            id="hero-sticker"
-            className="absolute -right-1 top-[calc(100%+8px)] w-24 md:left-[calc(50%+260px)] md:right-auto md:top-[-70px] md:w-[128px]"
-          />
         </div>
       </motion.div>
 
@@ -55,7 +50,7 @@ export function Hero() {
           <Parallax
             key={s.src}
             distance={s.distance}
-            className={`${s.oval ? "h-[300px] md:h-[40vh]" : "h-[230px] md:h-[32vh]"} ${i > 1 ? "hidden md:block" : ""}`}
+            className={`${s.oval ? "h-[270px] md:h-[40vh]" : "h-[270px] md:h-[32vh]"} ${i > 1 ? "hidden md:block" : ""}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

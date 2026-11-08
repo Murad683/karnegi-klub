@@ -68,28 +68,6 @@ body {
   font-weight: 700;
 }
 
-/* Səs çubuqlarının boşdakı yavaş "nəfəs alması" (footer). */
-@keyframes voice-breathe {
-  0%,
-  100% {
-    transform: scaleY(0.86);
-  }
-  50% {
-    transform: scaleY(1.04);
-  }
-}
-
-.voice-bar {
-  animation: voice-breathe 3.8s var(--ease-apple) infinite;
-  transform-origin: center;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .voice-bar {
-    animation: none;
-  }
-}
-
 /* Qeydiyyat pəncərəsinin yumşaq açılışı. */
 @keyframes dialog-in {
   from {
@@ -122,22 +100,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reg-dialog[open],
   .reg-dialog[open]::backdrop {
-    animation: none;
-  }
-}
-
-@keyframes sticker-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.sticker-spin {
-  animation: sticker-spin 16s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sticker-spin {
     animation: none;
   }
 }
