@@ -57,15 +57,16 @@ export function TelimBlock({ telim, index, total, progress }: Props) {
           </div>
         </div>
 
-        <div className="relative order-first mx-auto aspect-[4/5] w-full max-w-[150px] overflow-hidden rounded-t-full rounded-b-[20px] bg-white/40 md:order-none md:max-w-[300px] md:self-end md:rounded-b-[24px] lg:max-w-[340px]">
-          <Parallax distance={40} className="absolute -inset-y-6 inset-x-0">
+        {/* Çərçivə mənbə şəklin nisbətindədir (3:2), şəkil kəsilmir. */}
+        <div className="relative order-first aspect-[3/2] w-full overflow-hidden rounded-[22px] bg-white/40 md:order-none md:mx-auto md:max-w-[420px] md:self-end md:rounded-[28px] lg:max-w-[460px]">
+          <Parallax distance={16} className="absolute -inset-y-2 inset-x-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={telim.sekil}
               alt={telim.ad}
               loading="lazy"
               decoding="async"
-              className="size-full object-cover object-[50%_25%] transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+              className="size-full object-cover object-[50%_30%] transition-transform duration-[900ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
             />
           </Parallax>
         </div>

@@ -7,10 +7,10 @@ import { Parallax } from "./motion/Parallax";
 import { useScrollMotion } from "./motion/useScrollMotion";
 
 const shapes = [
-  { src: "/images/telimler/natiq.jpg", pos: "35% 20%", oval: false, distance: 36 },
-  { src: "/images/telimler/stress.jpg", pos: "50% 30%", oval: true, distance: 70 },
-  { src: "/images/telimler/satis.jpg", pos: "50% 20%", oval: false, distance: 48 },
-  { src: "/images/telimler/ideya.jpg", pos: "55% 25%", oval: true, distance: 84 },
+  { src: "/images/telimler/natiq.jpg", pos: "35% 20%", tall: false, distance: 36 },
+  { src: "/images/telimler/stress.jpg", pos: "50% 30%", tall: true, distance: 70 },
+  { src: "/images/telimler/satis.jpg", pos: "50% 20%", tall: false, distance: 48 },
+  { src: "/images/telimler/ideya.jpg", pos: "55% 25%", tall: true, distance: 84 },
 ];
 
 export function Hero() {
@@ -50,7 +50,7 @@ export function Hero() {
           <Parallax
             key={s.src}
             distance={s.distance}
-            className={`${s.oval ? "h-[270px] md:h-[40vh]" : "h-[270px] md:h-[32vh]"} ${i > 1 ? "hidden md:block" : ""}`}
+            className={`${s.tall ? "h-[240px] md:h-[40vh]" : "h-[240px] md:h-[32vh]"} ${i > 0 ? "hidden md:block" : "col-span-2 md:col-span-1"}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -58,8 +58,9 @@ export function Hero() {
               alt=""
               aria-hidden="true"
               decoding="async"
-              fetchPriority={i < 2 ? "high" : "auto"}
-              className={`size-full object-cover ${s.oval ? "rounded-full" : "rounded-[28px]"}`}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchPriority={i === 0 ? "high" : "auto"}
+              className="size-full rounded-[28px] object-cover"
               style={{ objectPosition: s.pos }}
             />
           </Parallax>
