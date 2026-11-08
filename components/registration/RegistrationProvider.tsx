@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { buildWhatsappLink } from "@/content/site";
+import { inputClass, telefonDuzgunDur } from "@/lib/forms";
 import { telimler } from "@/content/telimler";
 
 type Ctx = { open: (telimSlug?: string) => void };
@@ -11,8 +12,6 @@ export const useRegistration = () => useContext(RegistrationContext);
 
 type Errors = { ad?: string; telefon?: string };
 
-const inputClass =
-  "mt-2 w-full rounded-2xl border border-ink/10 bg-mist/60 px-4 py-3.5 text-base font-medium text-ink outline-none transition duration-300 placeholder:text-muted/60 focus:border-sky focus:bg-white focus:ring-4 focus:ring-sky/20";
 
 export function RegistrationProvider({ children }: { children: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -43,7 +42,7 @@ export function RegistrationProvider({ children }: { children: ReactNode }) {
     e.preventDefault();
     const next: Errors = {};
     if (ad.trim().length < 2) next.ad = "Adınızı yazın";
-    if (telefon.replace(/\D/g, "").length < 9) next.telefon = "Telefon nömrəsini düzgün yazın";
+    if (!telefonDuzgunDur(telefon)) next.telefon = "Telefon nömrəsini düzgün yazın";
     setErrors(next);
     if (next.ad || next.telefon) return;
 

@@ -24,10 +24,15 @@ npm run check:placeholders   # yayımdan əvvəl: hələ real olmayan (nümunə)
 | `app/` | ana səhifə (`page.tsx`), layout, qlobal CSS və dizayn tokenləri, `icon.svg`, `sitemap.ts`, `robots.ts` |
 | `app/telimler/` | təlimlər siyahısı (`/telimler/`): menyu və footer-dəki "Təlimlər" linki buraya aparır |
 | `app/telimler/[slug]/` | təlim səhifələri (`/telimler/ad/`), `generateStaticParams` ilə build zamanı yaranır |
+| `app/haqqimizda/` | Haqqımızda (`/haqqimizda/`): hekayə, təlimçi, yol xəritəsi, müştəri loqoları. Məzmun `content/haqqimizda.ts`-dədir (köhnə saytdan, təsdiq gözləyir) |
+| `components/haqqimizda/` | yol xəritəsi (illərə görə siyahı) |
+| `app/elaqe/` | əlaqə səhifəsi (`/elaqe/`): zəng, WhatsApp, ünvan kartları və korporativ təklif forması (LocalBusiness JSON-LD ünvan təsdiqlənənə qədər yoxdur) |
+| `app/not-found.tsx` | 404 səhifəsi (build-də `out/404.html`, nginx `error_page 404 /404.html` ilə istifadə edəcək) |
 | `components/` | menyu, hero, footer, qeydiyyat pəncərəsi |
+| `components/elaqe/` | əlaqə kartları və korporativ forma (WhatsApp-a açılır, backend yoxdur) |
 | `components/sections/` | Təlimlər (yığılan bloklar), Nəcəf bey, Rəylər, Müştərilər, yekun çağırış |
 | `components/telim/` | təlim səhifəsinin bölmələri (hero, kimlər üçündür, proqram, nəticə, iki yol, digər təlimlər) |
-| `lib/` | ortaq köməkçilər (`tones.ts`: təlim rəngləri) |
+| `lib/` | ortaq köməkçilər (`tones.ts`: təlim rəngləri, `forms.ts`: forma sahəsi üslubu və telefon yoxlaması) |
 | `components/motion/` | scroll effektləri (reveal, parallaks, sayğac, scroll göstəricisi) |
 | `content/` | **bütün mətn və məlumat** (təlimlər, rəylər, müştərilər, rəqəmlər, əlaqə) |
 | `public/images/` | təlim şəkilləri |

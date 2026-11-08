@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${BASE}/`, changeFrequency: "monthly", priority: 1 },
     { url: `${BASE}/telimler/`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/haqqimizda/`, changeFrequency: "yearly", priority: 0.7 },
+    { url: `${BASE}/elaqe/`, changeFrequency: "yearly", priority: 0.7 },
     ...hazirTelimler.map((t) => ({
       url: `${BASE}${telimYolu(t.slug)}`,
       changeFrequency: "monthly" as const,
