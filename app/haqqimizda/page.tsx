@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { LinkButton } from "@/components/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
@@ -48,7 +48,7 @@ export default function HaqqimizdaSehifesi() {
               <Reveal className="text-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/telimler/stress.jpg"
+                  src="/images/telimler/stress.webp"
                   alt={necef.ad}
                   loading="lazy"
                   decoding="async"

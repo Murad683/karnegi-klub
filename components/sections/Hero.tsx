@@ -2,15 +2,15 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { RegisterButton } from "./Button";
-import { Parallax } from "./motion/Parallax";
-import { useScrollMotion } from "./motion/useScrollMotion";
+import { RegisterButton } from "@/components/Button";
+import { Parallax } from "@/components/motion/Parallax";
+import { useScrollMotion } from "@/components/motion/useScrollMotion";
 
 const shapes = [
-  { src: "/images/telimler/natiq.jpg", pos: "35% 20%", tall: false, distance: 36 },
-  { src: "/images/telimler/stress.jpg", pos: "50% 30%", tall: true, distance: 70 },
-  { src: "/images/telimler/satis.jpg", pos: "50% 20%", tall: false, distance: 48 },
-  { src: "/images/telimler/ideya.jpg", pos: "55% 25%", tall: true, distance: 84 },
+  { src: "/images/telimler/natiq.webp", pos: "35% 20%", tall: false, distance: 36 },
+  { src: "/images/telimler/stress.webp", pos: "50% 30%", tall: true, distance: 70 },
+  { src: "/images/telimler/satis.webp", pos: "50% 20%", tall: false, distance: 48 },
+  { src: "/images/telimler/ideya.webp", pos: "55% 25%", tall: true, distance: 84 },
 ];
 
 export function Hero() {

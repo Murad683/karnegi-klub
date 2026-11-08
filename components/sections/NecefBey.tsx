@@ -26,7 +26,7 @@ export function NecefBey() {
         <Reveal>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/telimler/stress.jpg"
+            src="/images/telimler/stress.webp"
             alt={necef.ad}
             loading="lazy"
             decoding="async"

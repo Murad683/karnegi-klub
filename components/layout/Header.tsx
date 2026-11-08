@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
-import { RegisterButton } from "./Button";
+import { RegisterButton } from "@/components/Button";
 import { nav, site } from "@/content/site";
 
 type Mode = "top" | "hidden" | "floating";

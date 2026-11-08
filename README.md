@@ -12,6 +12,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # statik export: out/
 npm run lint
+npm run optimize:images      # public/images altındakı JPG/PNG-ni WebP-yə çevirir (yeni şəkil əlavə edəndə)
 npm run check:placeholders   # yayımdan əvvəl: hələ real olmayan (nümunə) məlumatları siyahılayır
 ```
 
@@ -28,16 +29,17 @@ npm run check:placeholders   # yayımdan əvvəl: hələ real olmayan (nümunə)
 | `components/haqqimizda/` | yol xəritəsi (illərə görə siyahı) |
 | `app/elaqe/` | əlaqə səhifəsi (`/elaqe/`): zəng, WhatsApp, ünvan kartları və korporativ təklif forması (LocalBusiness JSON-LD ünvan təsdiqlənənə qədər yoxdur) |
 | `app/not-found.tsx` | 404 səhifəsi (build-də `out/404.html`, nginx `error_page 404 /404.html` ilə istifadə edəcək) |
-| `components/` | menyu, hero, footer, qeydiyyat pəncərəsi |
+| `components/layout/` | ortaq çərçivə: menyu (`Header`), `Footer` (hərf-hərf `Wordmark`, `BackToTop`), `LogoMark` |
+| `components/` | `Button` və `registration/` (qeydiyyat pəncərəsi) |
 | `components/elaqe/` | əlaqə kartları və korporativ forma (WhatsApp-a açılır, backend yoxdur) |
-| `components/sections/` | Təlimlər (yığılan bloklar), Nəcəf bey, Rəylər, Müştərilər, yekun çağırış |
+| `components/sections/` | Hero, Təlimlər (yığılan bloklar), Nəcəf bey, Rəylər, Müştərilər, yekun çağırış |
 | `components/telim/` | təlim səhifəsinin bölmələri (hero, kimlər üçündür, proqram, nəticə, iki yol, digər təlimlər) |
 | `lib/` | ortaq köməkçilər (`tones.ts`: təlim rəngləri, `forms.ts`: forma sahəsi üslubu və telefon yoxlaması) |
 | `components/motion/` | scroll effektləri (reveal, parallaks, sayğac, scroll göstəricisi) |
 | `content/` | **bütün mətn və məlumat** (təlimlər, rəylər, müştərilər, rəqəmlər, əlaqə) |
-| `public/images/` | təlim şəkilləri |
-| `prototypes/` | dizayn prototipləri (statik HTML, yalnız tarixçə üçün) |
-| `scripts/` | `check-placeholders.mjs` |
+| `public/images/` | təlim şəkilləri və müştəri loqoları (hamısı WebP) |
+| `design/` | mənbə materialları (orijinal loqo) |
+| `scripts/` | `check-placeholders.mjs`, `optimize-images.mjs` |
 
 ## Məzmunu dəyişmək
 
@@ -46,6 +48,8 @@ Mətn və rəqəmlər `content/*.ts` fayllarındadır. `placeholder: true` işar
 **Təlim səhifələri:** `content/telimler.ts` faylında hər təlim üçün `seoAd` (başlıq/axtarış adı), `kimler`, `proqram`, `neticeler` doldurulduqda `/telimler/[slug]/` səhifəsi, sitemap-də yeri və ana səhifə blokunda "Ətraflı" linki avtomatik yaranır. Qiymət, müddət və qrafik real məlumat verilməyincə yazılmır.
 
 **Statik export qeydləri:** `trailingSlash: true` (hər səhifə `qovluq/index.html` kimi yaranır, nginx üçün sadə). Domen `app/layout.tsx`-dəki `metadataBase` və `app/sitemap.ts`-dəki `BASE`-də `https://karnegi.az` kimi qeyd olunub.
+
+**Şəkillər:** yeni şəkli `public/images/` altına qoyub `npm run optimize:images` işlədin (WebP-yə çevrilir, orijinal silinir), sonra `.webp` adı ilə istifadə edin. Dizayn prototipləri (köhnə HTML-lər) git tarixçəsindədir (`git log -- prototypes`).
 
 ## Dizayn qaydaları
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { ElaqeKartlari } from "@/components/elaqe/ElaqeKartlari";

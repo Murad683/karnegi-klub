@@ -42,7 +42,3 @@ next-env.d.ts
 
 # yerli işləmə konfiqurasiyası (brauzer pane və s.)
 /.claude/
-
-# kökdəki orijinal şəkil nüsxələri (eynisi public/images/ altındadır, adlarında xüsusi dırnaq işarələri var)
-/*.jpg
-/*.png

@@ -5,10 +5,10 @@
 export type Client = { ad: string; logo: string; placeholder: boolean };
 
 export const clients: Client[] = [
-  { ad: "189 Taxi", logo: "/images/clients/189-taxi.png", placeholder: true },
-  { ad: "Red Bull", logo: "/images/clients/red-bull.png", placeholder: true },
-  { ad: "Toyota", logo: "/images/clients/toyota.png", placeholder: true },
-  { ad: "DİN", logo: "/images/clients/din.png", placeholder: true },
-  { ad: "Lexus", logo: "/images/clients/lexus.png", placeholder: true },
-  { ad: "SAT Group", logo: "/images/clients/sat-group.png", placeholder: true },
+  { ad: "189 Taxi", logo: "/images/clients/189-taxi.webp", placeholder: true },
+  { ad: "Red Bull", logo: "/images/clients/red-bull.webp", placeholder: true },
+  { ad: "Toyota", logo: "/images/clients/toyota.webp", placeholder: true },
+  { ad: "DİN", logo: "/images/clients/din.webp", placeholder: true },
+  { ad: "Lexus", logo: "/images/clients/lexus.webp", placeholder: true },
+  { ad: "SAT Group", logo: "/images/clients/sat-group.webp", placeholder: true },
 ];
