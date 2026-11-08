@@ -10,7 +10,7 @@ export function Neticeler({ items }: { items: string[] }) {
           {items.map((metn, i) => (
             <li key={metn}>
               <Reveal delay={i * 0.08} className="flex flex-col items-center gap-5 text-center">
-                <span aria-hidden="true" className="grid size-12 place-items-center rounded-full bg-sun text-ink">
+                <span aria-hidden="true" className="grid size-12 place-items-center rounded-full bg-sky-soft text-sky">
                   <svg width="22" height="22" viewBox="0 0 22 22">
                     <path d="M5 11.5l4 4 8-9" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

@@ -6,7 +6,6 @@ import { RegisterButton } from "../Button";
 import { Parallax } from "../motion/Parallax";
 import { useScrollMotion } from "../motion/useScrollMotion";
 import { hazirTelimler, telimYolu, type Telim } from "@/content/telimler";
-import { tones } from "@/lib/tones";
 
 const sehifeliSluglar = new Set(hazirTelimler.map((t) => t.slug));
 
@@ -29,13 +28,13 @@ export function TelimBlock({ telim, index, total, progress }: Props) {
     <li className="sticky top-0 flex h-svh list-none items-start pt-[84px] md:h-screen md:pt-[104px]">
       <motion.div
         style={enabled ? { scale, top: stackOffset, transformOrigin: "50% 0%" } : undefined}
-        className={`group relative grid w-full gap-5 overflow-hidden rounded-[28px] p-6 text-ink shadow-[0_30px_80px_-40px_rgba(11,27,51,0.28)] will-change-transform md:h-[min(70vh,600px)] md:grid-cols-[1.25fr_1fr] md:gap-8 md:rounded-[36px] md:p-12 ${tones[telim.tone]}`}
+        className={`group relative grid w-full gap-5 overflow-hidden rounded-[28px] p-6 text-ink shadow-[0_30px_80px_-40px_rgba(11,27,51,0.28)] will-change-transform md:h-[min(70vh,600px)] md:grid-cols-[1.25fr_1fr] md:gap-8 md:rounded-[36px] md:p-12 ${index % 2 === 0 ? "bg-sky-soft" : "border border-ink/10 bg-white"}`}
       >
         <div className="flex flex-col items-center justify-between gap-4 text-center md:items-stretch md:gap-8 md:text-left">
           <div className="flex items-center justify-center gap-3 md:justify-start">
             <span className="text-sm font-bold opacity-60">{String(index + 1).padStart(2, "0")}</span>
             {index === 0 && (
-              <span className="rounded-full bg-sun px-3.5 py-1 text-xs font-bold text-ink">Əsas təlim</span>
+              <span className="rounded-full bg-sky px-3.5 py-1 text-xs font-bold text-white">Əsas təlim</span>
             )}
           </div>
           <h3 className="display text-[10.5vw] md:text-[clamp(44px,6.4vw,104px)]">

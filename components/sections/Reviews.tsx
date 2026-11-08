@@ -1,11 +1,8 @@
-import { reviews, type Review } from "@/content/reviews";
+import { reviews } from "@/content/reviews";
 import { Reveal } from "../motion/Reveal";
 
-const tones: Record<Review["tone"], string> = {
-  sun: "bg-sun-soft",
-  sky: "bg-sky-soft",
-  mint: "bg-mint",
-};
+// Rəng sayı az olsun deyə bütün rəy kartları eyni açıq mavi tondadır.
+const tone = "bg-sky-soft";
 
 export function Reviews() {
   return (
@@ -23,7 +20,7 @@ export function Reviews() {
             <li key={i} className="w-[84%] shrink-0 snap-center md:w-auto">
               <Reveal delay={i * 0.1} className="h-full">
                 <figure
-                  className={`flex h-full min-h-[340px] flex-col justify-between rounded-[28px] p-7 text-center text-ink md:min-h-[420px] md:text-left md:rounded-[36px] md:p-10 ${tones[r.tone]}`}
+                  className={`flex h-full min-h-[340px] flex-col justify-between rounded-[28px] p-7 text-center text-ink md:min-h-[420px] md:text-left md:rounded-[36px] md:p-10 ${tone}`}
                 >
                   <span aria-hidden="true" className="display block text-[110px] leading-[0.6] opacity-25 md:text-[140px]">
                     “

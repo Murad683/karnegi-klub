@@ -1,10 +1,11 @@
 import type { Tone } from "@/content/telimler";
 
-// Təlimlərin yumşaq rəng sxemləri (ana səhifə blokları və təlim səhifələri üçün ortaq).
+// Saytda rəng sayı az saxlanılır: fon yalnız açıq mavi (sky-soft) və ağdır.
+// `Tone` sahəsi content-də qalır (gələcəkdə lazım olarsa), amma bütün təlimlər eyni tonda göstərilir.
 export const tones: Record<Tone, string> = {
   sky: "bg-sky-soft",
-  sun: "bg-sun-soft",
-  peach: "bg-peach",
-  mint: "bg-mint",
-  mist: "bg-mist",
+  sun: "bg-sky-soft",
+  peach: "bg-sky-soft",
+  mint: "bg-sky-soft",
+  mist: "bg-sky-soft",
 };

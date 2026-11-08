@@ -13,7 +13,7 @@ export function IkiYol({ telim }: { telim: HazirTelim }) {
         <SectionHeading>Necə qoşulmaq istəyirsiniz?</SectionHeading>
         <div className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2 md:gap-6">
           <Reveal className="h-full">
-            <div className="flex h-full flex-col items-center rounded-[28px] bg-sky-soft p-8 text-center md:items-start md:rounded-[36px] md:p-12 md:text-left">
+            <div className="flex h-full flex-col items-center rounded-[28px] bg-white p-8 text-center md:items-start md:rounded-[36px] md:p-12 md:text-left">
               <p className="text-sm font-bold text-ink/60">Fərdi</p>
               <h3 className="display mt-2 text-[8vw] text-ink md:text-[2.8vw] min-[1700px]:text-[44px]">Açıq qrup</h3>
               <p className="mt-4 max-w-sm text-lg font-medium leading-relaxed text-ink/80">
@@ -27,7 +27,7 @@ export function IkiYol({ telim }: { telim: HazirTelim }) {
             </div>
           </Reveal>
           <Reveal delay={0.1} className="h-full">
-            <div className="flex h-full flex-col items-center rounded-[28px] bg-sun-soft p-8 text-center md:items-start md:rounded-[36px] md:p-12 md:text-left">
+            <div className="flex h-full flex-col items-center rounded-[28px] bg-white p-8 text-center md:items-start md:rounded-[36px] md:p-12 md:text-left">
               <p className="text-sm font-bold text-ink/60">Şirkətiniz üçün</p>
               <h3 className="display mt-2 text-[8vw] text-ink md:text-[2.8vw] min-[1700px]:text-[44px]">Korporativ</h3>
               <p className="mt-4 max-w-sm text-lg font-medium leading-relaxed text-ink/80">

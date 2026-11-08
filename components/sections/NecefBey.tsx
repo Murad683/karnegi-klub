@@ -3,7 +3,7 @@ import { CountUp } from "../motion/CountUp";
 import { necef } from "@/content/necef";
 import { site } from "@/content/site";
 
-const statTones = ["bg-sky-soft", "bg-sun-soft", "bg-mint"];
+const statTone = "bg-sky-soft"; // rəng sayı az olsun: üç kart da eyni tonda
 
 // Sitatı vurğulanan hissəyə görə üç hissəyə bölür.
 function Quote() {
@@ -43,10 +43,10 @@ export function NecefBey() {
         <Reveal delay={0.2}>
           {/* Mobildə üç kart bir cərgədə və yığcam (sitat və şəkildən çox yer tutmasın), masaüstündə geniş. */}
           <dl className="mt-9 grid grid-cols-3 gap-2.5 text-center md:mt-20 md:gap-4 md:text-left">
-            {site.stats.map((s, i) => (
+            {site.stats.map((s) => (
               <div
                 key={s.label}
-                className={`rounded-2xl px-2 py-4 md:rounded-[32px] md:p-8 ${statTones[i % statTones.length]}`}
+                className={`rounded-2xl px-2 py-4 md:rounded-[32px] md:p-8 ${statTone}`}
               >
                 <dd className="text-[6.4vw] font-extrabold leading-none tracking-[-0.04em] text-ink md:text-[clamp(44px,5.4vw,84px)]">
                   <CountUp value={s.value} />

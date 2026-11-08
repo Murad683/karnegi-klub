@@ -70,7 +70,7 @@ export function RegistrationProvider({ children }: { children: ReactNode }) {
         <form onSubmit={submit} noValidate className="p-7 sm:p-9">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="inline-flex items-center rounded-full bg-sun px-3.5 py-1 text-xs font-bold text-ink">
+              <p className="inline-flex items-center rounded-full bg-sky-soft px-3.5 py-1 text-xs font-bold text-ink">
                 İlk dərs pulsuzdur
               </p>
               <h2 id="reg-title" className="display mt-4 text-[44px]">
