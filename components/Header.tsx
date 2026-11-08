@@ -1,15 +1,20 @@
 "use client";
 
-import { motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
 import { RegisterButton } from "./Button";
-import { nav } from "@/content/site";
+import { nav, site } from "@/content/site";
 
 type Mode = "top" | "hidden" | "floating";
 
 // Apple tipli yumşaq əyri: yavaş başlayır, rahat dayanır.
 const APPLE = [0.32, 0.72, 0, 1] as const;
+
+// Mobil menyu hamburger düyməsinin olduğu küncdən dairə kimi açılır və geri yığılır.
+const ORIGIN = "calc(100% - 40px) 36px";
+const CLOSED = `circle(0px at ${ORIGIN})`;
+const OPEN = `circle(1500px at ${ORIGIN})`;
 
 export function Header() {
   const [mode, setMode] = useState<Mode>("top");
@@ -50,6 +55,15 @@ export function Header() {
   const hidden = mode === "hidden" && !menuOpen;
   const ink = floating ? "text-ink" : "text-white";
 
+  const item = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 44 },
+          animate: { opacity: 1, y: 0, transition: { delay, duration: 0.8, ease: APPLE } },
+          exit: { opacity: 0, y: 16, transition: { duration: 0.25, ease: APPLE } },
+        };
+
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-3">
       <motion.div
@@ -74,13 +88,13 @@ export function Header() {
         </a>
 
         <nav aria-label="Əsas menyu" className="hidden items-center gap-9 md:flex">
-          {nav.map((item) => (
+          {nav.map((i) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={i.href}
+              href={i.href}
               className={`text-[16px] font-semibold transition-[opacity,color] duration-500 hover:opacity-60 ${ink}`}
             >
-              {item.label}
+              {i.label}
             </a>
           ))}
         </nav>
@@ -105,38 +119,67 @@ export function Header() {
         </div>
       </motion.div>
 
-      {menuOpen && (
-        <div className="pointer-events-auto fixed inset-0 z-50 flex flex-col bg-sky px-5 py-4" role="dialog" aria-modal="true" aria-label="Menyu">
-          <div className="flex items-center justify-between">
-            <LogoMark tone="light" />
-            <button
-              type="button"
-              onClick={() => setMenuOpen(false)}
-              aria-label="Menyunu bağla"
-              className="grid size-11 place-items-center text-white"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4l16 16M20 4L4 20" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-          <nav className="mt-12 flex flex-col">
-            {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menyu"
+            initial={reduce ? { opacity: 0 } : { clipPath: CLOSED }}
+            animate={reduce ? { opacity: 1 } : { clipPath: OPEN }}
+            exit={reduce ? { opacity: 0 } : { clipPath: CLOSED, transition: { duration: 0.6, ease: APPLE } }}
+            transition={{ duration: reduce ? 0 : 0.9, ease: APPLE }}
+            className="pointer-events-auto fixed inset-0 z-50 flex flex-col bg-sky px-5 py-4"
+          >
+            <motion.div className="flex items-center justify-between" {...item(0.15)}>
+              <LogoMark tone="light" />
+              <button
+                type="button"
                 onClick={() => setMenuOpen(false)}
-                className="display py-1 text-[12.5vw] text-white"
+                aria-label="Menyunu bağla"
+                className="grid size-11 place-items-center text-white"
               >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="mt-auto pb-6" onClick={() => setMenuOpen(false)}>
-            <RegisterButton className="w-full">İlk dərsə yazıl</RegisterButton>
-          </div>
-        </div>
-      )}
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4l16 16M20 4L4 20" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+                </svg>
+              </button>
+            </motion.div>
+            <nav className="mt-9 flex flex-col">
+              {nav.map((i, idx) => (
+                <motion.a
+                  key={i.href}
+                  href={i.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-center gap-4 border-t border-white/40 py-5 last:border-b active:opacity-70"
+                  {...item(0.22 + idx * 0.08)}
+                >
+                  <span className="flex-1">
+                    <span className="display block text-[clamp(26px,8.2vw,34px)] text-white">{i.label}</span>
+                    <span className="mt-1 block text-[14px] font-semibold text-white/85">{i.desc}</span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="grid size-11 shrink-0 place-items-center rounded-full bg-white text-ink transition-transform duration-500 group-active:translate-x-0.5"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 18 18">
+                      <path d="M3 9h12M10 4l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </motion.a>
+              ))}
+            </nav>
+            <motion.div className="mt-6 text-[14px] font-semibold leading-relaxed text-white/90" {...item(0.46)}>
+              <a href={site.phoneHref}>{site.phone}</a>
+              <br />
+              {site.address}
+            </motion.div>
+            <motion.div className="mt-auto pb-6" onClick={() => setMenuOpen(false)} {...item(0.54)}>
+              <RegisterButton className="w-full">İlk dərsə yazıl</RegisterButton>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

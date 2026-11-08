@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { RegisterButton } from "./Button";
 import { Parallax } from "./motion/Parallax";
-import { useDesktopMotion } from "./motion/useDesktopMotion";
+import { useScrollMotion } from "./motion/useScrollMotion";
 
 const shapes = [
   { src: "/images/telimler/natiq.jpg", pos: "35% 20%", oval: false, distance: 36 },
@@ -15,7 +15,7 @@ const shapes = [
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const enabled = useDesktopMotion();
+  const { enabled } = useScrollMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yekun çağırış variantları</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#0099FF;--ink:#0B1B33;--orange:#F42902;--sun:#FFD84D;--skysoft:#DCEEFF;--sunsoft:#FFF1C2;--mint:#DDF3E4;--ease:cubic-bezier(.32,.72,0,1)}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);background:#FDFDFE}
+.lbl{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:9px 16px}
+.lbl small{font-weight:500;opacity:.8;margin-left:8px}
+.wrap{padding:60px 3vw 0}
+h2{font-weight:800;letter-spacing:-.035em;line-height:1.04}
+p.s{font-weight:500;color:#4a5878;font-size:19px;line-height:1.55;margin-top:20px;max-width:440px}
+.btn{display:inline-block;border-radius:999px;padding:19px 38px;font:700 17px 'Plus Jakarta Sans';border:0;transition:.5s var(--ease)}
+.orange{background:var(--orange);color:#fff;box-shadow:0 16px 36px -14px #F4290299}
+.ink{background:var(--ink);color:#fff}
+.foot{background:var(--sky);height:110px;margin-top:60px}
+/* C1 */
+.c1{background:var(--skysoft);border-radius:44px;padding:90px 30px;text-align:center}
+.c1 h2{font-size:clamp(40px,6vw,88px)}.c1 p.s{margin:20px auto 0}.c1 .btn{margin-top:34px}
+/* C2 */
+.c2{background:var(--sunsoft);border-radius:44px;padding:60px 5vw;display:grid;grid-template-columns:1.3fr 1fr;gap:5vw;align-items:center}
+.c2 h2{font-size:clamp(38px,5.2vw,78px)}.c2 .btn{margin-top:32px}
+.c2 .ph{aspect-ratio:4/5;max-width:300px;justify-self:center;width:100%;border-radius:999px 999px 28px 28px;background:url(img/stress.jpg) 50% 28%/cover}
+/* C3 */
+.c3{border-top:1px solid #0B1B3322;padding:90px 20px 20px;text-align:center}
+.c3 h2{font-size:clamp(40px,6.4vw,96px)}.c3 p.s{margin:20px auto 0}
+.c3 .row{display:flex;gap:22px;justify-content:center;align-items:center;margin-top:34px;flex-wrap:wrap}
+.c3 .lnk{font-weight:700;border-bottom:2px solid var(--ink);padding-bottom:3px}
+/* C4 */
+.c4{background:var(--mint);border-radius:44px;padding:80px 30px;text-align:center}
+.c4 h2{font-size:clamp(40px,6vw,88px)}.c4 p.s{margin:20px auto 0}.c4 .btn{margin-top:34px}
+.c4 .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.c4 .chips span{background:#fff;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+@media(max-width:800px){.c2{grid-template-columns:1fr;text-align:center}.c2 .ph{max-width:200px}.c1,.c4{padding:60px 20px}}
+</style>
+</head>
+<body>
+
+<div class="lbl">C1. Açıq mavi blok<small>Rəng səssizləşir, yalnız düymə narıncı qalır. Ən sadə dəyişiklik.</small></div>
+<div class="wrap"><section class="c1"><h2>Başlamağa hazırsan?</h2><p class="s">Gəlin, özünüz görün. Yerinizi ayırın, qalanını biz həll edək.</p><button class="btn orange">İlk dərsə yazıl</button></section></div>
+<div class="foot"></div>
+
+<div class="lbl">C2. Yumşaq sarı + şəkil<small>Daha insani: Nəcəf beyin şəkli yanındadır, çağırış dəvət kimi görünür.</small></div>
+<div class="wrap"><section class="c2"><div><h2>Başlamağa hazırsan?</h2><p class="s">Gəlin, özünüz görün. Yerinizi ayırın, qalanını biz həll edək.</p><button class="btn orange">İlk dərsə yazıl</button></div><div class="ph"></div></section></div>
+<div class="foot"></div>
+
+<div class="lbl">C3. Blok yoxdur, sadə mərkəz<small>Ağ fonda böyük başlıq və iki seçim. Ən sakit variant, promo hissi yoxdur.</small></div>
+<div class="wrap"><section class="c3"><h2>Başlamağa hazırsan?</h2><p class="s">Gəlin, özünüz görün. Yerinizi ayırın, qalanını biz həll edək.</p><div class="row"><button class="btn orange">İlk dərsə yazıl</button><span class="lnk">Əvvəl təlimlərə bax</span></div></section></div>
+<div class="foot" style="margin-top:80px"></div>
+
+<div class="lbl">C4. Nanə (yaşıl) blok<small>Rəng yumşaq, çipləri ilə qeydiyyatın asan olduğu vurğulanır.</small></div>
+<div class="wrap"><section class="c4"><h2>Başlamağa hazırsan?</h2><p class="s">Gəlin, özünüz görün. Yerinizi ayırın, qalanını biz həll edək.</p><button class="btn ink">İlk dərsə yazıl</button><div class="chips"><span>Qısa forma</span><span>WhatsApp ilə cavab</span></div></section></div>
+<div class="foot"></div>
+
+</body>
+</html>

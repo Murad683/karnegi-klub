@@ -68,6 +68,36 @@ body {
   font-weight: 700;
 }
 
+/* Müştəri loqoları karuseli: yavaş, sonsuz, üzərinə gələndə dayanır. */
+@keyframes logo-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: logo-scroll var(--dur, 45s) linear infinite;
+}
+
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* "Animasiyanı azalt": hərəkət yoxdur, loqolar mərkəzdə sətirlərə düzülür. */
+@media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-track > ul[aria-hidden] {
+    display: none;
+  }
+}
+
 /* Qeydiyyat pəncərəsinin yumşaq açılışı. */
 @keyframes dialog-in {
   from {

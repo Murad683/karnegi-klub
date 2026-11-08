@@ -21,10 +21,11 @@ export const site = {
 } as const;
 
 // Qalereya və Haqqımızda səhifələri hazır olanda real marşrutlara çevrilir.
+// `desc` — mobil menyuda linkin altında göstərilən, hara aparacağını izah edən qısa cümlə.
 export const nav = [
-  { label: "Təlimlər", href: "#telimler" },
-  { label: "Haqqımızda", href: "#necef-bey" },
-  { label: "Əlaqə", href: "#elaqe" },
+  { label: "Təlimlər", href: "#telimler", desc: "Altı təlim və yazılmaq" },
+  { label: "Haqqımızda", href: "#necef-bey", desc: "Təlimçi və rəqəmlər" },
+  { label: "Əlaqə", href: "#elaqe", desc: "Telefon və ünvan" },
 ] as const;
 
 export function buildWhatsappLink(message: string) {

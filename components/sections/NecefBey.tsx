@@ -21,7 +21,7 @@ function Quote() {
 // Nəcəf bey: mərkəzləşmiş sitat, kiçik dairəvi şəkil və rəqəmlər (rəqəmlər saytda yalnız burada göstərilir).
 export function NecefBey() {
   return (
-    <section id="necef-bey" className="scroll-mt-16 bg-white px-4 py-24 md:px-10 md:py-32">
+    <section id="necef-bey" className="scroll-mt-16 bg-white px-4 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1100px] text-center">
         <Reveal>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -30,7 +30,7 @@ export function NecefBey() {
             alt={necef.ad}
             loading="lazy"
             decoding="async"
-            className="mx-auto size-[120px] rounded-full object-cover object-[50%_25%] shadow-[0_0_0_8px_var(--color-sun-soft)] md:size-[132px]"
+            className="mx-auto size-[104px] rounded-full object-cover object-[50%_25%] shadow-[0_0_0_7px_var(--color-sun-soft)] md:size-[132px] md:shadow-[0_0_0_8px_var(--color-sun-soft)]"
           />
         </Reveal>
         <Reveal delay={0.1}>
@@ -41,13 +41,17 @@ export function NecefBey() {
           <p className="mt-1 text-[15px] font-medium text-muted">{necef.rol}</p>
         </Reveal>
         <Reveal delay={0.2}>
-          <dl className="mt-14 grid gap-4 text-center md:mt-20 md:grid-cols-3 md:text-left">
+          {/* Mobildə üç kart bir cərgədə və yığcam (sitat və şəkildən çox yer tutmasın), masaüstündə geniş. */}
+          <dl className="mt-9 grid grid-cols-3 gap-2.5 text-center md:mt-20 md:gap-4 md:text-left">
             {site.stats.map((s, i) => (
-              <div key={s.label} className={`rounded-[32px] p-8 ${statTones[i % statTones.length]}`}>
-                <dd className="text-[clamp(44px,5.4vw,84px)] font-extrabold leading-none tracking-[-0.04em] text-ink">
+              <div
+                key={s.label}
+                className={`rounded-2xl px-2 py-4 md:rounded-[32px] md:p-8 ${statTones[i % statTones.length]}`}
+              >
+                <dd className="text-[6.4vw] font-extrabold leading-none tracking-[-0.04em] text-ink md:text-[clamp(44px,5.4vw,84px)]">
                   <CountUp value={s.value} />
                 </dd>
-                <dt className="mt-3 text-[17px] font-semibold text-ink/70">{s.label}</dt>
+                <dt className="mt-1.5 text-xs font-semibold text-ink/70 md:mt-3 md:text-[17px]">{s.label}</dt>
               </div>
             ))}
           </dl>
